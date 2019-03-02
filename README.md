@@ -10,3 +10,7 @@ pip3 install -r requirements.txt
 ### Usage
 
 Press F1 ~ F5 in the homepage of the Maplestory client to login, where the keys are mapping to account-1 ~ account-5.
+
+### Screenshot
+
+![log.png](log.jpg)

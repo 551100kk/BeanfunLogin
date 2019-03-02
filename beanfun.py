@@ -139,8 +139,12 @@ class BeanfunClient:
             account.acc,account.secreate_time.replace(' ', '%20'), int(uptime.uptime() * 1000))
         otp_result = self.session.get(otp_url)
 
-        print('[INFO] OTP Result: ' + otp_result.text + '\t' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+        print('[Info] OTP Result: ' + otp_result.text + '\t' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         status = otp_result.text[0]
+        if status != '1':
+            print('[Error] Need to restart the program.')
+            return -1
+
         key = otp_result.text[2: 10]
         text = otp_result.text[10:]
         otp = self.decrypt_des(key, text)
